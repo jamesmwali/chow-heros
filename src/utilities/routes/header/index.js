@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {getUser, logout} from '../../redux/actions/user/userActions';
+import {getUser, logout} from '../../../redux/actions/user/userActions';
 
 
 // ? Create Navigation
@@ -26,9 +26,7 @@ class Header extends Component {
               <button type="button" className="navbar-toggle"
                       data-toggle="collapse"
                       data-target="#myNavBar">
-                <span className="icon-bar"/>
-                <span className="icon-bar"/>
-                <span className="icon-bar"/>
+
               </button>
               <Link className="navbar-brand" to="/">CHOW HERO 2019</Link>
             </div>

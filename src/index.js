@@ -10,10 +10,10 @@ import thunk from 'redux-thunk';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Login from './components/login';
-import Header from './utilities/routes/header';
 import LoadingComponent from './components/loader';
 import AuthenticatedComponent from './components/authenticated';
-import ChowDetail from './components/chow-detail'
+import ChowDetail from './components/chow-detail';
+import ChowHeader from './utilities/routes/header/index';
 
 // * Redux store imports
 
@@ -39,7 +39,7 @@ ReactDOM.render(
               } exact={true}/>
 
               <AuthenticatedComponent>
-                <Header/>
+                <ChowHeader/>
 
                 <Route path="/chow/:id" render={() =>
                     <ChowDetail/>

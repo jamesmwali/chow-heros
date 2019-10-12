@@ -13,7 +13,7 @@ class LoadingComponent extends Component {
   };
 
   UNSAFE_componentWillMount() {
-    const {userLoading, notesLoading} = this.props;
+    const {userLoading, chowLoading} = this.props;
 
 
 
@@ -24,8 +24,8 @@ class LoadingComponent extends Component {
 
     // ? if we haven't tried to load the notes, load notes
 
-    if (notesLoading === undefined || notesLoading === null ) {
-      this.props.getNotes();
+    if (chowLoading === undefined || chowLoading === null ) {
+      this.props.getChows();
     }
 
   }
@@ -34,23 +34,23 @@ class LoadingComponent extends Component {
 
     // ? wait for user to get Authenticated anf then load the notes.
 
-    if (nextProps.notesLoading === -1 && nextProps.user !== null) {
-      this.props.getNotes();
+    if (nextProps.chowLoading === -1 && nextProps.user !== null) {
+      this.props.getChows();
     }
 
   }
 
   render() {
 
-    const {userLoading, notesLoading} = this.props;
+    const {userLoading, chowLoading} = this.props;
 
-    if ((!userLoading && !notesLoading) || this.props.user === null) {
+    if ((!userLoading && !chowLoading) || this.props.user === null) {
       return (<div>{this.props.children}</div>);
     } else {
       return (
           <div className="overlay">
             <Loader loaded={this.state.loaded} color="#f93"/>
-            <h2 style={{marginTop:100}}>Loading....</h2>
+            <p style={{marginTop:100}}>Loading chow, please wait....</p>
           </div>
       );
     }
@@ -63,10 +63,10 @@ function mapStateToProps(state) {
   return {
     user: state.user,
     userLoading: state.loading.user,
-    notesLoading: state.loading.notes,
+    chowLoading: state.loading.chows,
   };
 
 }
 
 export default withRouter(
-    connect(mapStateToProps, {getUser, getNotes: getChows})(LoadingComponent));
+    connect(mapStateToProps, {getUser, getChows})(LoadingComponent));
