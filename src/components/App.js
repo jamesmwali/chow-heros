@@ -12,7 +12,8 @@ import {getUser} from '../redux/actions/user/userActions';
 import {Link} from 'react-router-dom';
 import '../components/App.scss';
 import Select from 'react-select';
-import HEREMap, { Marker } from 'react-here-maps';
+
+
 
 
 
@@ -28,8 +29,12 @@ class App extends Component {
         {value: 'Corporate', label: 'Corporate'},
         {value: 'Student', label: 'Student'},
         {value: 'Anonymous', label: 'Anonymous'},
-      ]
+      ],
+      selected_file: [],
+      heroeType: '',
+      errors: {}
     };
+
   }
 
   handleChange(e) {
@@ -47,9 +52,13 @@ class App extends Component {
 
     let chow = {
       name: form.name,
+      surname: form.surname,
+      phone_numbers: form.phoneNumber,
       description: form.description,
+      heroeType: this.state.heroeType.value,
       uid: this.props.user.uid,
     };
+
 
     //? database.push(notes);
     // ? replaced with a function from the redux actions.
@@ -57,6 +66,24 @@ class App extends Component {
     this.props.saveChow(chow);
     this.setState({form: {}}, () => clearForm(this));
 
+  }
+  handleImage(e){
+
+    console.log(e.target.files[0]);
+    this.setState({selected_file: e.target.files[0]})
+
+  }
+
+  handleDropDown(selectedOption, name) {
+    let { errors } = this.state;
+
+    if ([name] === "") {
+      Object.assign(errors, { [name]: `${name} can not be empty` });
+      this.setState({ errors });
+    } else {
+      delete errors[name];
+      this.setState({ [name]: selectedOption });
+    }
   }
 
   renderChows() {
@@ -88,8 +115,8 @@ class App extends Component {
 
   }
 
-  render() {
 
+  render() {
 
     return (
         <div className="chowhero-container">
@@ -112,11 +139,24 @@ class App extends Component {
               <div className="hero-inputs">
                 
                 <div className="form-group">
-                  <input type="text" placeholder="Name" />
+                  <input type="text" placeholder="Name" name="name"
+                         value={this.state.form.name}
+                         onChange={this.handleChange.bind(this)} />
                 </div>
 
                 <div className="form-group">
-                  <input type="text" placeholder="Surname" />
+                  <input type="text" placeholder="Surname"  name="surname"
+                         value={this.state.form.surname}
+                         onChange={this.handleChange.bind(this)}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <input type="text" placeholder="Phone numbers" name="phoneNumber"
+                         value={this.state.form.phoneNumber}
+                         onChange={this.handleChange.bind(this)}
+
+                  />
                 </div>
 
                 <div className="form-group">
@@ -124,21 +164,36 @@ class App extends Component {
                           classNamePrefix="select-picker"
                           placeholder="Please select entity name"
                           options={this.state.options}
-
-
+                          onChange={selectedOption =>
+                              this.handleDropDown(selectedOption, "heroeType")
+                          }
 
                   />
                 </div>
 
                 <div className="form-group">
-
+                  <textarea name="description" value={this.state.form.value} onChange={this.handleChange.bind(this)}
+                            placeholder="Product Description"/>
                 </div>
+
 
                 <div className="form-group">
-                  <textarea name="" id="" cols="30" rows="10" placeholder="Product Description"/>
+
+                  <div className="upload-btn-wrapper">
+                    <button className="btn">Upload a file</button>
+                    <input type="file" name="file" onChange={this.handleImage.bind(this)}/>
+                  </div>
+
+                  {this.state.selected_file.name}
+
                 </div>
 
+                <div className="button-container">
+                  <button onClick={this.handleSubmit.bind(this)}>
+                    Submit
+                  </button>
 
+                </div>
 
               </div>
 
@@ -161,4 +216,4 @@ function mapStateToProps(state, ownProps) {
 //?  function from the redux actions.
 
 export default connect(mapStateToProps,
-    {getChows, saveChow, deleteChow, getUser})(App);
+    {saveChow,getChows, deleteChow, getUser})(App);

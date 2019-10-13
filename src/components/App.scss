@@ -8,7 +8,7 @@
 .chowhero-container {
   background: #D8D8D8;
   padding-top: 75px;
-  min-height: 600px;
+  min-height: 700px;
 
   .hero-container {
     display: flex;
@@ -16,7 +16,7 @@
 
     .hero {
       width: 863px;
-      min-height: 500px;
+      min-height: 650px;
       border-radius: 5px;
       background: #fff;
 
@@ -69,7 +69,13 @@
         align-items: center;
 
         .form-group {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
           padding-bottom: 20px;
+
 
           & > input[type='text'],
           & > input[type='email'],
@@ -90,6 +96,33 @@
             &:focus {
               border: 1px solid #f90;
             }
+          }
+
+          .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+          }
+
+          .btn {
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+          }
+
+          .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+
           }
 
           textarea {
@@ -165,6 +198,41 @@
             }
           }
 
+        }
+
+        .button-container {
+          justify-content: center;
+          display: flex;
+          width: 575px;
+
+          button {
+            background: linear-gradient(to bottom, #db3236, #db3236);
+            border: 0;
+            border-radius: 50px;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            height: 55px;
+            width: 200px;
+            font-family: Montserrat, Montserrat, sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+            margin: 0 10px 0px 10px;
+
+            &:hover {
+              opacity: .5;
+            }
+
+
+            &:last-of-type {
+              background: #00aced;
+            }
+
+          }
         }
       }
 
