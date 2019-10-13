@@ -12,8 +12,8 @@ class Login extends Component {
     console.log('-->', !userLoading && user !== null);
 
     if (!userLoading && user !== null) {
-      this.props.history.push('/');
-      window.location.replace("/");
+      this.props.history.push('/landing-page');
+      window.location.replace("/landing-page");
     }
   }
 
@@ -24,8 +24,8 @@ class Login extends Component {
     console.log('-->', !userLoading && user !== null);
 
     if (!userLoading && user !== null) {
-      this.props.history.push('/');
-      window.location.replace("/");
+      this.props.history.push('/landing-page');
+      window.location.replace("/landing-page");
     }
   }
 
@@ -33,7 +33,7 @@ class Login extends Component {
   componentWillReceiveProps(nextProps) {
 
     if (nextProps.user !== null) {
-      this.props.history.push('/');
+      this.props.history.push('/landing-page');
 
     }
   }
@@ -49,7 +49,7 @@ class Login extends Component {
 
               <div className="page-logo">
                 <div className="logo">
-                  Chow Hero
+                  ChowHero
                 </div>
 
               </div>

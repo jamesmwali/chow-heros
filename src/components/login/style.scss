@@ -10,7 +10,7 @@
     .page-logo {
 
       .logo {
-        font-family: Arial, Arial, "sans-serif";
+        font-family: Montserrat, Montserrat, "sans-serif";
         font-weight: bold;
         font-size: 30px;
         color: #f2f2f2;
@@ -30,7 +30,7 @@
         left: 130px;
 
         .welcome {
-          font-family: Arial, Arial, "sans-serif";
+          font-family: Montserrat, Montserrat, "sans-serif";
           font-size: 38px;
           color: #ffffff;
           width: 370px;
@@ -40,7 +40,7 @@
         }
 
         .w-body {
-          font-family: Arial, Arial, "sans-serif";
+          font-family: Montserrat, Montserrat, "sans-serif";
           font-size: 18px;
           color: #ffffff;
           width: 280px;
@@ -53,46 +53,52 @@
   }
 
   .right-panel {
-    background: #fff;
     height: 700px;
     width: 100%;
+    background: #f2f2f2;
 
     .sign-up-container {
 
       position: relative;
-      margin-left: 55px;
+      margin-left: 10px;
       width: 100%;
       top: 250px;
 
 
       .sign-up-header {
-        font-family: Arial, Arial, "sans-serif";
+        font-family: Montserrat, Montserrat, "sans-serif";
         font-size: 38px;
-        color: #000;
+        color: #910D2A;
         padding-bottom: 20px;
-
+        font-style: italic;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
       }
 
       .button-container {
         justify-content: space-between;
         display: flex;
+        width: 575px;
 
         button {
           background: linear-gradient(to bottom, #db3236, #db3236);
-          border: 1px solid #ffffff;
-          border-radius: 45.2px;
+          border: 0;
+          border-radius: 50px;
           text-transform: uppercase;
           display: flex;
           justify-content: center;
           align-items: center;
           color: #ffffff;
-          height: 65px;
+          height: 55px;
           width: 200px;
-          font-family: Arial, Arial, sans-serif;
-          font-size: 15px;
+          font-family: Montserrat, Montserrat, sans-serif;
+          font-size: 14px;
           cursor: pointer;
           outline: none;
           box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+          margin: 0 10px 0px 10px;
 
           &:hover {
             opacity: .5;

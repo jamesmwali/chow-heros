@@ -14,6 +14,7 @@ import LoadingComponent from './components/loader';
 import AuthenticatedComponent from './components/authenticated';
 import ChowDetail from './components/chow-detail';
 import ChowHeader from './utilities/routes/header/index';
+import LandingPage from './components/landing-page'
 
 // * Redux store imports
 
@@ -41,12 +42,20 @@ ReactDOM.render(
               <AuthenticatedComponent>
                 <ChowHeader/>
 
+
                 <Route path="/chow/:id" render={() =>
                     <ChowDetail/>
                 } exact={true}/>
 
-                <Route path="/" render={() =>
-                    <App/>
+                <Route path="/hero" render={() =>
+                    <App/> } exact={true}/>
+
+                    <Route path="/" render={() =>
+                    <App/> } exact={true}/>
+
+                <Route path="/landing-page" render={() =>
+                    <LandingPage/>
+
                 } exact={true}/>
               </AuthenticatedComponent>
 

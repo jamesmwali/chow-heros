@@ -11,6 +11,9 @@ import ChowCard from './chow-card';
 import {getUser} from '../redux/actions/user/userActions';
 import {Link} from 'react-router-dom';
 import '../components/App.scss';
+import Select from 'react-select';
+import HEREMap, { Marker } from 'react-here-maps';
+
 
 
 class App extends Component {
@@ -20,6 +23,12 @@ class App extends Component {
     this.state = {
       form: {},
       chows: {},
+      options: [
+          {value: 'SMME', label: 'SMME'},
+        {value: 'Corporate', label: 'Corporate'},
+        {value: 'Student', label: 'Student'},
+        {value: 'Anonymous', label: 'Anonymous'},
+      ]
     };
   }
 
@@ -83,35 +92,58 @@ class App extends Component {
 
 
     return (
-        <div className="container-fluid" style={{paddingTop: 20}}>
-          <div className="row">
-            <div className="col-sm-6 col-sm-offset-3">
-              <form onSubmit={this.handleSubmit.bind(this)}
-                    style={{paddingBottom: 20}}>
-                <div className="form-group">
+        <div className="chowhero-container">
 
-                  <input type="text" name="name" value={this.state.form.name}
-                         onChange={this.handleChange.bind(this)}
-                         className="form-control no-border"
-                         placeholder="Title..." required={true}/>
+
+          <div className="hero-container">
+
+            <div className="hero">
+              <div className="hero-nav">
+                <Link className="back" to="/landing-page">
+                    Back
+                </Link>
+              </div>
+
+              <div className="hero-header">
+                Please provide details
+              </div>
+
+
+              <div className="hero-inputs">
+                
+                <div className="form-group">
+                  <input type="text" placeholder="Name" />
+                </div>
+
+                <div className="form-group">
+                  <input type="text" placeholder="Surname" />
+                </div>
+
+                <div className="form-group">
+                  <Select className="select-picker"
+                          classNamePrefix="select-picker"
+                          placeholder="Please select entity name"
+                          options={this.state.options}
+
+
+
+                  />
                 </div>
 
                 <div className="form-group">
 
-                  <textarea name="description" style={{resize: 'none', minHeight: 100}}
-                            onChange={this.handleChange.bind(this)}
-                            value={this.state.form.description}
-                            className="form-control no-border"
-                            placeholder="Product description..." required={true}/>
                 </div>
 
                 <div className="form-group">
-                  <button className="btn btn-primary col-sm-12"> Save</button>
+                  <textarea name="" id="" cols="30" rows="10" placeholder="Product Description"/>
                 </div>
 
-              </form>
-              <br/>
-              {this.renderChows()}
+
+
+              </div>
+
+
+
             </div>
           </div>
         </div>

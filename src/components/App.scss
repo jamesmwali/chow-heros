@@ -4,3 +4,170 @@
   width: 100%;
   margin: 0 auto;
 }
+
+.chowhero-container {
+  background: #D8D8D8;
+  padding-top: 75px;
+  min-height: 600px;
+
+  .hero-container {
+    display: flex;
+    justify-content: center;
+
+    .hero {
+      width: 863px;
+      min-height: 500px;
+      border-radius: 5px;
+      background: #fff;
+
+      .hero-nav {
+
+        padding-top: 15px;
+
+        .back {
+
+          background: linear-gradient(to bottom, #db3236, #db3236);
+          border: 0;
+          border-radius: 25px;
+          text-transform: uppercase;
+          text-decoration: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #ffffff;
+          height: 32px;
+          width: 100px;
+          font-family: Arial, Arial, sans-serif;
+          font-size: 15px;
+          cursor: pointer;
+          outline: none;
+          box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+          margin: 0 10px 0px 10px;
+
+          &:hover {
+            transform: scale(1.03);
+          }
+
+        }
+
+      }
+
+      .hero-header {
+        font-family: Montserrat, Montserrat, "sans-serif";
+        font-size: 28px;
+        color: #000;
+        font-weight: bold;
+        text-transform: capitalize;
+        padding: 20px 0 10px 20px;
+      }
+
+      .hero-inputs {
+        display: flex;
+        justify-content: center;
+        padding-top: 15px;
+        flex-direction: column;
+        align-items: center;
+
+        .form-group {
+          padding-bottom: 20px;
+
+          & > input[type='text'],
+          & > input[type='email'],
+          & > input[type='number'] {
+
+            display: block;
+            background: #ffffff;
+            border: 1px solid #D8D8D8;
+            height: 26.3px;
+            width: 592px;
+            padding: 5px 10px;
+            border-radius: 0;
+            font-family: Montserrat, Montserrat, "sans-serif";
+            font-size: 17px;
+            color: hsl(0,0%,50%);
+            outline: none;
+
+            &:focus {
+              border: 1px solid #f90;
+            }
+          }
+
+          textarea {
+            display: block;
+            background: #ffffff;
+            border: 1px solid #D8D8D8;
+            width: 592px;
+            height: 80px;
+            padding: 5px 10px;
+            border-radius: 0;
+            font-family: Montserrat, Montserrat, "sans-serif";
+            font-size: 17px;
+            color: hsl(0,0%,50%);
+            outline: none;
+            resize: none;
+
+            &:focus {
+              border: 1px solid #f90;
+            }
+          }
+
+          .select-picker {
+            width: 616px;
+            text-transform: capitalize;
+            cursor: pointer;
+
+            .select-picker__control {
+              border-radius: 0;
+
+              &.select-picker__control--is-focused {
+                box-shadow: 0 0 0 1px #ff9900 !important;
+                border-color: #f90;
+                text-transform: capitalize;
+              }
+            }
+
+            .select-picker__indicators {
+              svg {
+                fill: #cccccc !important;
+              }
+            }
+
+            .select-picker__indicator-separator {
+              display: none;
+            }
+
+            .select-picker__value-container {
+              font-family: Montserrat, Montserrat, "sans-serif";
+              font-size: 16px;
+              text-transform: capitalize;
+              color: hsl(0,0%,50%);
+            }
+
+            .select-picker__menu {
+              border-radius: 0;
+
+              .select-picker__option {
+                font-family: Montserrat, Montserrat, "sans-serif";
+                font-size: 12px;
+                color: hsl(0,0%,50%);
+                text-transform: capitalize;
+
+                &.select-picker__option--is-focused {
+                  background: lighten($color: #f90, $amount: 10%);
+                  color: #ffffff;
+                  text-transform: capitalize;
+                }
+
+                &.select-picker__option--is-selected {
+                  background: #f90;
+                }
+              }
+            }
+          }
+
+        }
+      }
+
+    }
+  }
+}

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getUser, logout} from '../../../redux/actions/user/userActions';
+import './style.scss'
 
 
 // ? Create Navigation
@@ -11,45 +12,39 @@ class Header extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+
+    };
 
   }
 
   render() {
 
     return (
-        <nav className="navbar navbar-default">
-          <div className="container-fluid">
+        <nav className="header-container">
+          <div className="header-contents">
 
-            <div className="navbar-header">
-
-              <button type="button" className="navbar-toggle"
-                      data-toggle="collapse"
-                      data-target="#myNavBar">
-
-              </button>
-              <Link className="navbar-brand" to="/">CHOW HERO 2019</Link>
+            <div className="navbar-left">
+              <Link className="navbar-brand" to="/">ChowHero</Link>
             </div>
 
-            <div className="collapse navbar-collapse" id="myNavBar">
-              <ul className="nav navbar-nav navbar-right">
+            <div className="navbar-right" id="myNavBar">
                 {this.props.user === null ?
-                    ( <li>
-                      <Link to="/login">Login
+                    (
+                      <Link className="link" to="/login">Login
                       </Link>
-                    </li> )
+                     )
                     :
-                    ( <li>
-                      <Link to="/logout" onClick={()=> {
+                    (
+                      <Link className="link" to="/logout" onClick={()=> {
                         this.props.logout();
                         window.location.replace("/logout");
 
                       }}>
                         Logout
                       </Link>
-                    </li> )
+                     )
                 }
-              </ul>
             </div>
           </div>
 
